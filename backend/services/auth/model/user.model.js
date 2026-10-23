@@ -5,9 +5,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         unique: true
     },
-    username: string,
-    email: string,
-    avatar: string
+    username: String,
+    email: String,
+    avatar: String
 }, {
     timestamps: true
 })
