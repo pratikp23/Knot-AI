@@ -44,8 +44,26 @@
 
 
 import Home from './pages/Home'
+import { useEffect } from 'react'
+import getCurrentUser from './features/getCurrentUser.js'
+import { useDispatch } from 'react-redux'
+import { setUserData } from './redux/userSlice.js'
+
 
 const App = () => {
+
+  const dispatch = useDispatch();
+
+  // Fetch the current user when the component mounts
+  useEffect(() => {
+    const getUser = async () => {
+      const data = await getCurrentUser();
+      dispatch(setUserData(data));
+    };
+    getUser();
+  }, []);
+
+
   return (
     <>
       <Home />
